@@ -9,13 +9,8 @@ const cloudinary = require('cloudinary');
 // Connect with database
 connectWithDb();
 
-// app.use(
-//     cors({
-//         origin: "http://localhost:4200",
-//         methods: "GET,POST,PUT,DELETE",
-//         credentials: true,
-//     })
-// );
+
+
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/"
