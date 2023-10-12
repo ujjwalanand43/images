@@ -6,10 +6,13 @@ const fileUpload = require('express-fileupload');
 const connectWithDb = require('./src/config/db');
 require('dotenv').config();
 const cloudinary = require('cloudinary');
+const cors = require('cors');
+
 // Connect with database
 connectWithDb();
 
-
+// Enable CORS with a wildcard origin
+app.use(cors({ origin: '*' }));
 
 app.use(fileUpload({
     useTempFiles: true,
