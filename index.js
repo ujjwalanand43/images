@@ -13,13 +13,11 @@ connectWithDb();
 
 // Enable CORS with a wildcard origin
 // app.use(cors({ origin: '*' }));
-app.use(
-    cors({
-        origin: "https://images-sage-alpha.vercel.app/",
-        methods: "GET,POST,PUT,DELETE",
-        credentials: true,
-    })
-);
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    // Other CORS headers and options can be set here as needed.
+    next();
+  });
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/"
